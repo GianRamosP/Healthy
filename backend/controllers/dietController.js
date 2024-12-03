@@ -20,7 +20,7 @@ const getUserDiets = async (req, res) => {
   const { userId } = req.params;
   try {
     const diets = await Diet.find({ user: userId });
-    console.log("Retrieved diets:", diets); // Log para verificar los datos
+    // console.log("Retrieved diets:", diets);
     res.status(200).json(diets);
   } catch (error) {
     console.error("Error fetching diets:", error);

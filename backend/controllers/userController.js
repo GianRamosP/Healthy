@@ -14,14 +14,14 @@ const registerUser = async (req, res) => {
       return res.status(400).json({ message: "El usuario ya existe" });
     }
     const hashedPassword = await bcrypt.hash(password, 10);
-    console.log("Hash de la contraseña almacenada:", hashedPassword);
+    // console.log("Hash de la contraseña almacenada:", hashedPassword);
     const user = new User({
       name,
       email,
       password,
       role,
     });
-    console.log("Hash de la contraseña almacenada:", user.password);
+    // console.log("Hash de la contraseña almacenada:", user.password);
     const savedUser = await user.save();
     res.status(201).json(savedUser);
   } catch (error) {
@@ -87,11 +87,11 @@ const loginUser = async (req, res) => {
       return res.status(404).json({ message: "Usuario no encontrado" });
     }
 
-    console.log("Contraseña ingresada:", password);
-    console.log("Hash de la base de datos:", user.password);
+    // console.log("Contraseña ingresada:", password);
+    // console.log("Hash de la base de datos:", user.password);
 
     const isMatch = await bcrypt.compare(password, user.password);
-    console.log("¿Las contraseñas coinciden?", isMatch);
+    // console.log("¿Las contraseñas coinciden?", isMatch);
     if (!isMatch) {
       return res.status(400).json({ message: "Contraseña incorrecta" });
     }

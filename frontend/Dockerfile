@@ -1,30 +1,13 @@
-FROM node:lts-alpine as builder
+FROM node:20.17.0
 
-RUN mkdir /app
 WORKDIR /app
 
-RUN npm install -g create-react-app
+COPY package.json .
 
-COPY package*.json ./
-
-RUN npm ci
+RUN npm install --legacy-peer-deps
 
 COPY . .
 
-CMD ["npm", "start"]
+EXPOSE 3000
 
-FROM builder as dev-envs
-
-RUN <<EOF
-apk update
-apk add --no-cache git
-EOF
-
-RUN <<EOF
-adduser -D -s /bin/sh vscode
-EOF
-
-# install Docker tools (cli, buildx, compose)
-COPY --from=gloursdocker/docker / /
-
-CMD ["npm", "start"]
+CMD ["npm", "run", "start"]

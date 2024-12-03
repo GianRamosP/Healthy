@@ -1,10 +1,7 @@
-FROM node:lts-alpine3.19
+FROM node:20.17.0
+
 
 WORKDIR /app
-
-COPY package*.json ./
-
-RUN npm install  
 
 COPY . .
 
@@ -12,4 +9,5 @@ RUN npm install
 
 EXPOSE 3001
 
+# CMD ["npm", "run", "start"]
 CMD ["node", "server.js"]

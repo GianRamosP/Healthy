@@ -25,7 +25,7 @@ const getUserExerciseRoutines = async (req, res) => {
   const { userId } = req.params;
   try {
     const routines = await ExerciseRoutine.find({ user: userId });
-    console.log("Retrieved exercise routines:", routines); // Log para verificar los datos
+    // console.log("Retrieved exercise routines:", routines);
     res.status(200).json(routines);
   } catch (error) {
     console.error("Error fetching routines:", error);

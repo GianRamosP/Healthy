@@ -52,7 +52,7 @@ const Login = () => {
         // Almacenar el token JWT y el userId en localStorage
         localStorage.setItem('token', data.token)
         localStorage.setItem('userId', data.user._id) // Ajusta si el userId es diferente
-        console.log('Token y userId almacenados:', data.token, data.user._id)
+        // console.log('Token y userId almacenados:', data.token, data.user._id)
 
         // Navegar al componente deseado
         navigate('/welcome-login')

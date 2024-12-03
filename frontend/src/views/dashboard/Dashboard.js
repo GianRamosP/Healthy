@@ -25,14 +25,14 @@ const Dashboard = () => {
       if (!token) {
         console.warn('Token is missing.')
       } else {
-        console.log('Token found:', token)
+        // console.log('Token found:', token)
       }
 
       if (!userId) {
         console.error('User ID is missing.')
         return
       } else {
-        console.log('User ID found:', userId)
+        // console.log('User ID found:', userId)
       }
 
       try {
@@ -55,14 +55,14 @@ const Dashboard = () => {
         const exerciseResponse = await axios.get(`http://localhost:3001/api/routines/${userId}`, {
           headers: { Authorization: `Bearer ${token}` },
         })
-        console.log('Exercises fetched successfully:', exerciseResponse.data)
+        // console.log('Exercises fetched successfully:', exerciseResponse.data)
         setExercises(exerciseResponse.data || [])
 
         // Fetch diet data
         const dietResponse = await axios.get(`http://localhost:3001/api/diets/${userId}`, {
           headers: { Authorization: `Bearer ${token}` },
         })
-        console.log('Diet data fetched successfully:', dietResponse.data)
+        // console.log('Diet data fetched successfully:', dietResponse.data)
         setDietData(dietResponse.data || [])
       } catch (error) {
         console.error('Error fetching data:', error)

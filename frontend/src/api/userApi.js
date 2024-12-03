@@ -11,7 +11,7 @@ export const deleteUser = async (token, userData) => {
       },
       data: userData,
     })
-    console.log(response.data.message)
+    // console.log(response.data.message)
     return response.data
   } catch (error) {
     console.error('Error eliminando usuario:', error.response.data.message)
@@ -27,7 +27,7 @@ export const updateUser = async (token, userData) => {
         'Content-Type': 'application/json',
       },
     })
-    console.log('Usuario actualizado:', response.data)
+    // console.log('Usuario actualizado:', response.data)
     return response.data
   } catch (error) {
     console.error('Error actualizando usuario:', error.response.data.message)
@@ -43,7 +43,7 @@ export const createUser = async (token, userData) => {
         'Content-Type': 'application/json',
       },
     })
-    console.log('Usuario creado:', response.data)
+    // console.log('Usuario creado:', response.data)
     return response.data
   } catch (error) {
     console.error('Error creando usuario:', error.response.data.message)

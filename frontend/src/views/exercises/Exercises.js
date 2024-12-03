@@ -13,24 +13,24 @@ const Exercises = () => {
     if (!token) {
       console.warn('Token is missing.')
     } else {
-      console.log('Token found:', token)
+      // console.log('Token found:', token)
     }
 
     if (!userId) {
       console.error('User ID is missing.')
       return
     } else {
-      console.log('User ID found:', userId)
+      // console.log('User ID found:', userId)
     }
 
-    console.log(`Fetching exercises for user ID: ${userId}`)
+    // console.log(`Fetching exercises for user ID: ${userId}`)
 
     const fetchExercises = async () => {
       try {
         const response = await axios.get(`http://localhost:3001/api/routines/${userId}`, {
           headers: { Authorization: `Bearer ${token}` },
         })
-        console.log('Exercises fetched successfully:', response.data)
+        // console.log('Exercises fetched successfully:', response.data)
         setExercises(response.data || [])
       } catch (error) {
         console.error('Error fetching exercises:', error)
