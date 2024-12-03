@@ -1,0 +1,37 @@
+version: "3.9"
+
+services:
+  frontend:
+    build:
+      context: frontend
+      target: builder
+    ports:
+      - 3000:3000
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    command: ["npm", "start"]
+
+  backend:
+    build:
+      context: backend
+    ports:
+      - 3001:3001
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+    command: ["node", "server.js"]
+    depends_on:
+      - mongo
+
+  mongo:
+    image: mongo:latest
+    ports:
+      - 27017:27017
+    volumes:
+      - mongo-data:/data/db
+
+volumes:
+  mongo-data:

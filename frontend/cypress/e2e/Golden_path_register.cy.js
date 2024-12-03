@@ -1,0 +1,15 @@
+describe('Golden_path_register.cy', () => {
+  it('tests Golden_path_register.cy', () => {
+    cy.viewport(1041, 679)
+    cy.visit('http://localhost:3000/#/register')
+    cy.get('div:nth-of-type(1) > input').click()
+    cy.get('div:nth-of-type(1) > input').type('Orlando Davila')
+    cy.get('div:nth-of-type(2) > input').type('orlando@gmail.com')
+    cy.get('div:nth-of-type(3) > input').type('123456')
+    cy.get('div.mb-4 > input').type('123456')
+    cy.get('button').click()
+    cy.get('div.body > div > div').click()
+    cy.get('div.body > div > div').click()
+    cy.get('div.body > div > div > div > div:nth-of-type(1) > h2').click()
+  })
+})
